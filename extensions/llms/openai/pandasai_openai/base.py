@@ -20,7 +20,7 @@ class BaseOpenAI(LLM):
     api_token: str
     api_base: str = "https://api.openai.com/v1"
     temperature: float = 0
-    max_completion_tokens: int = 1000
+    max_tokens: int = 1000
     top_p: float = 1
     frequency_penalty: float = 0
     presence_penalty: float = 0.6
@@ -44,7 +44,7 @@ class BaseOpenAI(LLM):
         """
         Set Parameters
         Args:
-            **kwargs: ["model", "deployment_name", "temperature","max_completion_tokens",
+            **kwargs: ["model", "deployment_name", "temperature","max_tokens",
             "top_p", "frequency_penalty", "presence_penalty", "stop", "seed"]
 
         Returns:
@@ -56,7 +56,7 @@ class BaseOpenAI(LLM):
             "model",
             "deployment_name",
             "temperature",
-            "max_completion_tokens",
+            "max_tokens",
             "top_p",
             "frequency_penalty",
             "presence_penalty",
@@ -80,8 +80,8 @@ class BaseOpenAI(LLM):
             "n": self.n,
         }
 
-        if self.max_completion_tokens is not None:
-            params["max_completion_tokens"] = self.max_completion_tokens
+        if self.max_tokens is not None:
+            params["max_tokens"] = self.max_tokens
 
         # Azure gpt-35-turbo doesn't support best_of
         # don't specify best_of if it is 1

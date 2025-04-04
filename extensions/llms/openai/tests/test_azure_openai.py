@@ -75,7 +75,7 @@ class TestAzureOpenAILLM:
             deployment_name="Deployed-GPT-3",
             is_chat_model=True,
             temperature=0.5,
-            max_completion_tokens=50,
+            max_tokens=50,
             top_p=1.0,
             frequency_penalty=2.0,
             presence_penalty=3.0,
@@ -85,7 +85,7 @@ class TestAzureOpenAILLM:
         assert llm.deployment_name == "Deployed-GPT-3"
         assert llm._is_chat_model
         assert llm.temperature == 0.5
-        assert llm.max_completion_tokens == 50
+        assert llm.max_tokens == 50
         assert llm.top_p == 1.0
         assert llm.frequency_penalty == 2.0
         assert llm.presence_penalty == 3.0
