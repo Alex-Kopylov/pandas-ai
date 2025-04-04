@@ -18,8 +18,7 @@ class BaseOpenAI(LLM):
     """
 
     api_token: str
-    api_base: str = "https://api.openai.com/v1"
-    temperature: float = 0
+    api_base: str = "https://api.openai.com/v1/chat/completions"
     max_tokens: int = 1000
     top_p: float = 1
     frequency_penalty: float = 0
@@ -44,7 +43,7 @@ class BaseOpenAI(LLM):
         """
         Set Parameters
         Args:
-            **kwargs: ["model", "deployment_name", "temperature","max_tokens",
+            **kwargs: ["model", "deployment_name","max_tokens",
             "top_p", "frequency_penalty", "presence_penalty", "stop", "seed"]
 
         Returns:
@@ -55,7 +54,6 @@ class BaseOpenAI(LLM):
         valid_params = [
             "model",
             "deployment_name",
-            "temperature",
             "max_tokens",
             "top_p",
             "frequency_penalty",
@@ -71,7 +69,6 @@ class BaseOpenAI(LLM):
     def _default_params(self) -> Dict[str, Any]:
         """Get the default parameters for calling OpenAI API."""
         params: Dict[str, Any] = {
-            "temperature": self.temperature,
             "top_p": self.top_p,
             "frequency_penalty": self.frequency_penalty,
             "presence_penalty": self.presence_penalty,
