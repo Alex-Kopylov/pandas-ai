@@ -18,7 +18,7 @@ class BaseOpenAI(LLM):
     """
 
     api_token: str
-    api_base: str = "https://api.openai.com/v1/chat/completions"
+    api_base: str = "https://api.openai.com/v1"
     max_tokens: int = 1000
     top_p: float = 1
     frequency_penalty: float = 0
